@@ -20,8 +20,8 @@ public class DampItem {
     //путь к файлу с данными по товарам
     public static String file = "src/main/DB_items.txt";
 
-    //метод получения списка (List) с объектами Item
-    public static List<Item> getDump() {
+    //метод получения списка (List) со строками из файла
+    public static List<String> getDump() {
         try(Stream<String> strings = Files.lines(Paths.get(file))) {
             return strings
                     .map(e -> e
@@ -29,25 +29,10 @@ public class DampItem {
                             .replaceAll("'", "")
                             .replace("(", "")
                             .replace(")", ""))
-                    .map(Item::new)
                     .toList();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-    }
-
-    //метод поиска объекта класса Brand по id
-    public static Brand getBrandById (int idBrand) {
-        final IDaoBrand daoBrand = null;  //как инициализировать не в null ?
-        Brand br = daoBrand.findById(idBrand); //как вытащить объект класса Brand по id ???
-        return br;
-    }
-
-    //метод поиска объекта класса Category по id
-    public static Category getCategoryById (int idCategory) {
-        final IDaoCategory daoCategory = null;
-        Category ct = daoCategory.findById(idCategory); //как вытащить объект класса Brand по id ???
-        return ct;
     }
 
 }

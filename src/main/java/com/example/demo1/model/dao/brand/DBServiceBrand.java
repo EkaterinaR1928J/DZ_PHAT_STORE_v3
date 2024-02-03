@@ -37,6 +37,7 @@ public class DBServiceBrand implements IDaoBrand{
     @Override
     public Brand deleteById(int id) {
         Brand brand = findById(id);
+        System.out.println(brand.getBrand()); //справочно показываем название бренда к удалению
         brandRepo.deleteById(id);
         return brand;
     }

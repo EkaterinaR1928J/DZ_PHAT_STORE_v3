@@ -43,8 +43,4 @@ public class ViewController {
         brands.add("Phat");
         return brands;
     }
-
-
-
-
 }
